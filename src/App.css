@@ -17,3 +17,38 @@
     font-weight: 700;
     margin-left: 20px;
 }
+
+main {
+    padding: 50px;
+
+}
+
+.form {
+    display: grid;
+    grid-template: 40px 40px / 1fr 1fr;
+    gap: 20px;
+}
+
+.input {
+    text-indent: 5px;
+    border-radius: 5px;
+}
+
+.form-button {
+    grid-column: 1/ -1;
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(90.41deg, #711F8D 1.14%, #A818DA 100%);
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.meme-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-top: 36px;
+
+}
