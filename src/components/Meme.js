@@ -17,6 +17,7 @@ export default function Meme() {
         const memeArr = allMemeData.data.memes;
         const randomNum = Math.floor(Math.random() * memeArr.length);
         const randomMeme = memeArr[randomNum].url;
+
         setMeme(preState => {
             return {
                 ...preState,
@@ -26,6 +27,17 @@ export default function Meme() {
         );
     }
 
+    function importText(event) {
+        setMeme(prevMeme => {
+            return {
+                ...prevMeme,
+                [event.target.name]: event.target.value
+            }
+        })
+    }
+
+
+
 
     return (
         <main className='main'>
@@ -33,11 +45,19 @@ export default function Meme() {
                 <input
                     className='input'
                     type='text'
-                    placeholder='Top Text' />
+                    placeholder='Top Text'
+                    onChange={importText}
+                    name='topText'
+                    value={meme.topText}
+                />
                 <input
                     className='input'
                     type='text'
-                    placeholder='Bottom Text' />
+                    placeholder='Bottom Text'
+                    onChange={importText}
+                    name='bottomText'
+                    value={meme.bottomText}
+                />
                 <button
                     className='form-button'
                     onClick={takeImage}>
@@ -45,10 +65,15 @@ export default function Meme() {
                 </button>
 
             </div>
-            <img
-                className='meme-image'
-                src={meme.image}>
-            </img>
+            <div className='meme'>
+                <img
+                    className='meme-image'
+                    src={meme.image}>
+                </img>
+                <h2 className='meme--text top'>{meme.topText}</h2>
+                <h2 className='meme--text bottom'>{meme.bottomText}</h2>
+            </div>
+
         </main>
     )
 }
